@@ -1,0 +1,2596 @@
+
+/* ---------- Global ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  /* subtle neutral background */
+  background: radial-gradient(circle at top, #FFFFFF 0%, #F8FAFC 45%, #EEF2FF 100%);
+  font-family: Arial, sans-serif;
+
+  color: #0F172A;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* Nice smooth UI transitions */
+a,
+img,
+.row-box,
+.location,
+.overlay-text {
+  transition: all 0.25s ease;
+}
+
+/* ===== ACTIVE NAV LINK ===== */
+.nav-links a.active {
+  background: linear-gradient(90deg, #1E3A8A, #1D4ED8);
+  color: #FFFFFF;
+  font-weight: bold;
+  box-shadow: 0 8px 18px rgba(30, 58, 138, 0.22);
+}
+
+/* hover + active blend */
+.nav-links a.active:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* ---------- Topbar / Navbar ---------- */
+.topbar {
+  position: fixed;
+  /* Fixes navbar in same place */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 999;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 24px;
+
+  /* glass effect / background */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Push page content below fixed navbar */
+body {
+  margin: 0;
+  padding-top: 80px;
+  /* Adjust if navbar height changes */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  /* secondary accent */
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.25);
+}
+
+.brand-text {
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+  font-weight: 700;
+
+  color: #0F172A;
+  letter-spacing: 0.3px;
+}
+
+/* Nav container */
+.nav-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+/* Nav links */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  font-size: 16px;
+  color: #1E3A8A;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+/* underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 5px;
+
+  height: 2px;
+  border-radius: 2px;
+
+  background: linear-gradient(90deg, #1E3A8A, #F59E0B);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(30, 58, 138, 0.08);
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* CTA button style for enquiry */
+.nav-cta {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  color: #0F172A !important;
+  box-shadow: 0 10px 22px rgba(245, 158, 11, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(245, 158, 11, 0.30);
+}
+
+/* ---------- Headings ---------- */
+
+
+/* SECTION SPACING */
+.attractions {
+  padding: 100px 20px;
+  text-align: center;
+  background: #F9FAFB;
+}
+
+/* TITLE DESIGN */
+.section-title {
+  font-family: "Baskerville Old Face", serif;
+  font-size: 48px;
+  letter-spacing: 4px;
+
+  position: relative;
+  display: inline-block;
+}
+
+/* Gradient text */
+.section-title span {
+  background: linear-gradient(90deg, #1E3A8A, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Decorative lines */
+.section-title::before,
+.section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 2px;
+  background: #1E3A8A;
+}
+
+.section-title::before {
+  left: -100px;
+}
+
+.section-title::after {
+  right: -100px;
+}
+
+/* PARAGRAPH */
+.section-text {
+  max-width: 900px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  line-height: 1.9;
+  color: #374151;
+
+  background: rgba(255, 255, 255, 0.7);
+  padding: 30px 40px;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+
+
+.lastheading {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 80px;
+
+  font-family: "Baskerville Old Face", serif;
+
+  color: #1E3A8A;
+  text-shadow: 0 10px 25px rgba(30, 58, 138, 0.12);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+/* Text overlay */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+/* Main heading */
+.hero-text h1 {
+  font-size: 60px;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+}
+
+/* Subtitle */
+.hero-text p {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Button */
+.hero-btn {
+  text-decoration: none;
+  padding: 12px 25px;
+  background: #ff9800;
+  color: white;
+  border-radius: 30px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #ff5722;
+}
+
+
+/* ---------- Locations Grid ---------- */
+.locations-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 28px;
+  margin: 55px auto;
+  width: 92%;
+}
+
+.location {
+  text-align: center;
+  width: 190px;
+  padding: 12px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+}
+
+.location img {
+  height: 260px;
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+/* image hover zoom + glow */
+.location:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(30, 58, 138, 0.20);
+}
+
+.location:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.07);
+}
+
+.location h5 {
+  margin: 12px 0 4px;
+  font-family: "Times New Roman", serif;
+
+  font-size: 16px;
+  letter-spacing: 0.6px;
+
+  color: #0F172A;
+}
+
+/* ---------- Bottom 3 Cards ---------- */
+.row-sections {
+  display: flex;
+  gap: 18px;
+  margin: 55px auto;
+  width: min(1000px, 92%);
+}
+
+.row-box {
+  width: 33.33%;
+  padding: 22px;
+
+  border-radius: 22px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.90));
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative gradient stripe */
+.row-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 6px;
+  width: 100%;
+
+  background: linear-gradient(90deg, #1E3A8A, #F59E0B);
+  opacity: 0.9;
+}
+
+.row-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.14);
+}
+
+h6 {
+  font-family: Castellar, serif;
+  color: #1E3A8A;
+  font-size: 18px;
+  margin: 10px 0 10px;
+}
+
+p2 {
+  display: block;
+  color: #334155;
+  font-family: "Baskerville Old Face", serif;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+
+
+/* ---------- Page Load Animation ---------- */
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth fade + rise on initial load */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slight “pop” for cards/images */
+@keyframes softPop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Apply to whole page */
+body {
+  opacity: 0;
+  animation: pageEnter 0.9s ease forwards;
+}
+
+/* Stagger key sections */
+.topbar {
+  opacity: 0;
+  animation: pageEnter 0.8s ease forwards;
+  animation-delay: 0.05s;
+}
+
+.heading {
+  opacity: 0;
+  animation: pageEnter 0.9s ease forwards;
+  animation-delay: 0.14s;
+}
+
+.overlay-container {
+  opacity: 0;
+  animation: softPop 1s ease forwards;
+  animation-delay: 0.22s;
+}
+
+h4,
+.lastheading {
+  opacity: 0;
+  animation: pageEnter 0.9s ease forwards;
+  animation-delay: 0.30s;
+}
+
+/* Cards and location tiles pop in smoothly */
+.location,
+.row-box {
+  opacity: 0;
+  animation: softPop 0.9s ease forwards;
+}
+
+/* Add small stagger effect without JS using nth-child */
+.locations-container .location:nth-child(1) {
+  animation-delay: 0.35s;
+}
+
+.locations-container .location:nth-child(2) {
+  animation-delay: 0.42s;
+}
+
+.locations-container .location:nth-child(3) {
+  animation-delay: 0.49s;
+}
+
+.locations-container .location:nth-child(4) {
+  animation-delay: 0.56s;
+}
+
+.locations-container .location:nth-child(5) {
+  animation-delay: 0.63s;
+}
+
+.row-sections .row-box:nth-child(1) {
+  animation-delay: 0.35s;
+}
+
+.row-sections .row-box:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.row-sections .row-box:nth-child(3) {
+  animation-delay: 0.55s;
+}
+
+/* Make the overlay text appear slightly after the image */
+.overlay-text {
+  opacity: 0;
+  animation: pageEnter 0.9s ease forwards;
+  animation-delay: 0.34s;
+}
+
+
+
+
+/* ABOUT US PAGE  */
+
+/* ========== TOP CONTENT ========== */
+.upcontent {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 30px;
+  gap: 20px;
+}
+
+/* Sections */
+.fsection {
+  width: 48%;
+  padding: 20px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  transition: 0.25s ease;
+}
+
+/* Hover lift */
+.fsection:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Headings */
+.fsection h2 {
+  font-size: 36px;
+  color: #1E3A8A;
+  font-family: "Baskerville Old Face", serif;
+}
+
+/* Paragraph */
+.fsection p {
+  font-size: 19px;
+  font-family: "Baskerville Old Face", serif;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* ========== OFFER SECTION ========== */
+.offer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 30px;
+  gap: 25px;
+}
+
+/* Offer list */
+.offer-list h3 {
+  font-family: "Baskerville Old Face", serif;
+  color: #1E3A8A;
+  font-size: 30px;
+  margin-left: 55px;
+  transition: 0.2s;
+}
+
+/* Hover heading */
+.offer-list h3:hover {
+  color: #1D4ED8;
+}
+
+/* Offer list text */
+.offer-list ol {
+  font-family: "Baskerville Old Face", serif;
+  font-size: 19px;
+}
+
+.offer-list li {
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+/* Hover list */
+.offer-list li:hover {
+  color: #0F172A;
+  transform: translateX(6px);
+}
+
+/* ========== OFFER IMAGES ========== */
+.offer-images {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Image style */
+.offer-images img {
+  width: 30%;
+  height: auto;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
+}
+
+/* Image hover zoom */
+.offer-images img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+}
+
+/* ========== CONTACT BOX ========== */
+.bordered-box {
+  padding: 20px 40px;
+  margin: 40px auto;
+  width: 50%;
+
+  border-radius: 20px;
+  background: rgba(248, 250, 252, 0.95);
+  text-align: left;
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: 0.25s ease;
+}
+
+/* Hover lift */
+.bordered-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+}
+
+/* List */
+.bordered-box ul {
+  list-style-position: inside;
+  padding-left: 0;
+
+  font-family: "Baskerville Old Face", serif;
+  color: #334155;
+  font-size: 18px;
+}
+
+.bordered-box li {
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+/* Hover list */
+.bordered-box li:hover {
+  color: #1E3A8A;
+}
+
+/* Paragraph */
+.bordered-box p {
+  margin-top: 20px;
+  line-height: 1.6;
+  font-family: "Baskerville Old Face", serif;
+  color: #334155;
+  font-size: 20px;
+}
+
+/* ========== SOCIAL ICONS ========== */
+.icons {
+  text-align: left;
+  padding: 20px 30px;
+  margin-top: 20px;
+}
+
+/* Icons */
+.icons img {
+  margin-right: 10px;
+  vertical-align: middle;
+
+  width: 32px;
+  height: 25px;
+
+  transition: 0.25s ease;
+}
+
+/* Hover icons */
+.icons img:hover {
+  transform: translateY(-4px) scale(1.1);
+  filter: brightness(1.05);
+}
+
+
+
+
+
+/* packages page */
+
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  background: #F8FAFC;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== TITLE ===== */
+.pkg-title {
+  margin: 60px 40px 10px;
+  font-family: Castellar, serif;
+  color: #1E3A8A;
+  font-size: 32px;
+}
+
+/* ===== CONTAINER ===== */
+.bcontainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ===== PACKAGE CARD ===== */
+.package-bg {
+  position: relative;
+  width: 47%;
+  height: 420px;
+
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  color: #FFFFFF;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+  transition: 0.4s ease;
+}
+
+.package-bg:hover {
+  transform: translateY(-15px) scale(1.04);
+  box-shadow: 0 35px 70px rgba(15, 23, 42, 0.40);
+}
+
+/* Overlay */
+.package-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.25));
+}
+
+/* ===== CONTENT BOX ===== */
+.contents {
+  position: absolute;
+  bottom: -40px;
+
+  width: 100%;
+  padding: 22px 26px;
+
+  background: rgba(15, 23, 42, 0.45);
+  border-radius: 0 0 30px 30px;
+
+  transform: translateY(80px);
+  transition: 0.35s ease;
+}
+
+.package-bg:hover .contents {
+  transform: translateY(0);
+}
+
+/* ===== TITLE ===== */
+.package-bg h3 {
+  font-family: Castellar, serif;
+  color: #F59E0B;
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(245, 158, 11, 0.35);
+  margin-bottom: 8px;
+}
+
+/* ===== LIST TEXT ===== */
+.package-bg ul {
+  font-size: 17px;
+  padding-left: 18px;
+  line-height: 1.5;
+}
+
+.package-bg li {
+  margin: 6px 0;
+}
+
+.package-bg li ul {
+  padding-left: 22px;
+}
+
+/* ===== BOOK NOW BUTTON (BOTTOM RIGHT) ===== */
+.book-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 125px;
+
+  padding: 7px 20px;
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  color: #0F172A;
+  font-weight: bold;
+
+  border-radius: 25px;
+  text-decoration: none;
+
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.30);
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  transform: scale(1.08);
+}
+
+
+
+
+
+/*  DESTINATIONS PAGE (UI/UX HOVER) */
+.page-title {
+  margin-left: 50px;
+  margin-top: 60px;
+
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+
+  color: #1E3A8A;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+/* Layout */
+.content-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+
+  padding: 45px 50px;
+  gap: 40px;
+}
+
+/* Make each destination look like a card */
+.content-block {
+  width: 45%;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Lift the entire block */
+.content-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 65px rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(30, 58, 138, 0.22);
+}
+
+/* Images */
+.content-block img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+
+  border-radius: 0;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Image zoom + slight contrast */
+.content-block:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.06) contrast(1.03);
+}
+
+/* Paragraph area */
+.content-block p {
+  margin: 0;
+  line-height: 1.7;
+  padding: 18px 18px 20px;
+
+  font-family: "Baskerville Old Face", serif;
+  font-size: 19px;
+
+  color: #334155;
+
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+/* Make text area more glassy on hover */
+.content-block:hover p {
+  background: rgba(255, 255, 255, 0.90);
+}
+
+/* Optional: a soft gradient strip at top for style */
+.content-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 6px;
+
+  background: linear-gradient(90deg, #1E3A8A, #F59E0B);
+  opacity: 0.85;
+  z-index: 2;
+}
+
+
+
+
+/* enquiry page */
+
+/* Divider */
+.page-divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(30, 58, 138, 0.85), rgba(245, 158, 11, 0.40));
+}
+
+/* ================= MAIN CONTAINER ================= */
+.pcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* LEFT form | RIGHT info */
+  gap: 28px;
+
+  padding: 28px;
+  max-width: 1150px;
+  margin: 38px auto;
+
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+
+  border-radius: 28px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pcontainer:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 75px rgba(15, 23, 42, 0.14);
+}
+
+/* ================= LEFT — FORM ================= */
+.form-section {
+  padding-right: 10px;
+  border-right: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Form card */
+form {
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 26px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+form:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.13);
+}
+
+.form-title {
+  margin: 0 0 6px;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+  color: #1E3A8A;
+}
+
+.form-subtitle {
+  margin: 0 0 18px;
+  color: #64748B;
+  font-size: 15px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 12px;
+
+  border: 1px solid rgba(30, 58, 138, 0.25);
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+
+  background: #FFFFFF;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Focus glow */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(30, 58, 138, 0.55);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.14);
+  transform: translateY(-1px);
+}
+
+textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 16px;
+
+  background: linear-gradient(90deg, #1E3A8A, #1D4ED8);
+  box-shadow: 0 16px 35px rgba(30, 58, 138, 0.25);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 22px 48px rgba(30, 58, 138, 0.33);
+}
+
+/* ================= RIGHT — INFO ================= */
+.text-section {
+  padding-left: 10px;
+}
+
+.text-section h1 {
+  margin-top: 6px;
+  color: #1E3A8A;
+  font-size: 28px;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+}
+
+.text-section p {
+  margin-top: 14px;
+  color: #334155;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ================= INFO CARD (BASE) ================= */
+.info-card {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 20px;
+
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.12);
+}
+
+/* Decorative gradient line */
+.info-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+
+  background: linear-gradient(180deg,
+      #1E3A8A,
+      #2563EB,
+      #0EA5E9);
+  border-radius: 20px 0 0 20px;
+}
+
+/* ================= HEADING STYLE ================= */
+.info-card h2,
+.info-card h4 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+
+  color: #1E3A8A;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add icon before heading */
+.info-card h2::before,
+.info-card h4::before {
+  content: "✦";
+  font-size: 14px;
+  color: #0EA5E9;
+}
+
+/* ================= TEXT STYLE ================= */
+.info-card h3,
+.info-card h5 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Optional highlight effect on hover */
+.info-card:hover h2,
+.info-card:hover h4 {
+  color: #0EA5E9;
+  transition: color 0.25s ease;
+}
+
+/* ================= ROW: MONTH + DAYS ================= */
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* COPYRIGHT — MODERN CENTER DESIGN */
+
+.copyright {
+  width: 100%;
+  margin-top: 80px;
+  padding: 28px 16px;
+  text-align: center;
+
+  /* glass card look */
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+
+  /* soft glow line */
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* text style */
+.copyright p {
+  font-size: 14px;
+  color: #1E3A8A;
+  letter-spacing: 0.3px;
+}
+
+
+
+/* Predict page ONLY  */
+
+.predict-page .page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+/* Predict page layout (Form LEFT, Content RIGHT) */
+.predict-page .predict-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+@media (max-width: 980px) {
+  .predict-page .predict-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sticky form card on desktop */
+.predict-page .sticky-card {
+  position: sticky;
+  top: 92px;
+  /* adjust if your topbar height differs */
+}
+
+/* ================= HERO (COMPACT) ================= */
+.predict-page .predict-hero {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.predict-page .predict-hero.compact h1 {
+  font-size: 2.0rem;
+  /* slightly smaller */
+  margin-bottom: 8px;
+  color: #1E3A8A;
+  font-weight: 900;
+}
+
+.predict-page .hero-lead {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.70);
+}
+
+/* ================= WEATHER CARD ================= */
+.predict-page .weather-card {
+  padding: 20px 22px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(10px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.predict-page .weather-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 46px rgba(15, 23, 42, 0.14);
+}
+
+.predict-page .card-head {
+  margin-bottom: 12px;
+}
+
+.predict-page .card-title {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.predict-page .badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(37, 99, 235, 0.18));
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  font-size: 20px;
+}
+
+.predict-page .weather-card h2 {
+  margin: 0;
+  color: #0F172A;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
+  letter-spacing: 0.2px;
+}
+
+.predict-page .subtext {
+  margin: 4px 0 0;
+  color: rgba(15, 23, 42, 0.70);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+/* ================= FORM ================= */
+.predict-page .form {
+  margin-top: 12px;
+}
+
+.predict-page .field {
+  margin-top: 12px;
+}
+
+.predict-page .weather-card label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.predict-page .weather-card input,
+.predict-page .weather-card select {
+  width: 100%;
+  padding: 11px 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(30, 58, 138, 0.20);
+  background: rgba(255, 255, 255, 0.96);
+
+  outline: none;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.predict-page .weather-card input::placeholder {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.predict-page .weather-card input:focus,
+.predict-page .weather-card select:focus {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.predict-page .hint {
+  display: block;
+  margin-top: 6px;
+  color: rgba(15, 23, 42, 0.58);
+  font-size: 0.85rem;
+}
+
+/* Small privacy note */
+.predict-page .micro-note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: rgba(15, 23, 42, 0.70);
+  font-weight: 700;
+  font-size: 0.9rem;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ================= BUTTON ================= */
+.predict-page .primary-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 14px;
+
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, #1E3A8A, #1D4ED8);
+
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  position: relative;
+}
+
+.predict-page .primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
+}
+
+.predict-page .primary-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.predict-page .primary-btn.loading .btn-text {
+  opacity: 0.65;
+}
+
+.predict-page .btn-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-top-color: white;
+  margin-left: 10px;
+  vertical-align: middle;
+  animation: spin 0.8s linear infinite;
+}
+
+.predict-page .primary-btn.loading .btn-spinner {
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= RESULT PANEL ================= */
+.predict-page .result {
+  margin-top: 14px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+}
+
+.predict-page .result-title {
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.predict-page .result-body {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.predict-page .result.info {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: rgba(14, 165, 233, 0.18);
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.predict-page .result.success {
+  background: rgba(16, 185, 129, 0.10);
+  border-color: rgba(16, 185, 129, 0.22);
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.predict-page .result.error {
+  background: rgba(239, 68, 68, 0.10);
+  border-color: rgba(239, 68, 68, 0.22);
+  color: rgba(15, 23, 42, 0.92);
+}
+
+/* ================= RIGHT CONTENT (MINIMAL) ================= */
+.predict-page .predict-content {
+  padding: 2px 2px;
+}
+
+.predict-page .predict-info {
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.06), rgba(37, 99, 235, 0.06));
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.predict-page .predict-info h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: #0F172A;
+}
+
+.predict-page .predict-info p {
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.72);
+}
+
+.predict-page .cta-text {
+  font-weight: 800;
+  color: #1E3A8A;
+  margin-top: 6px;
+}
+
+/* ================= HELPER CARD (MINIMAL) ================= */
+.predict-page .helper-card {
+  margin-top: 14px;
+  padding: 16px 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.80);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+}
+
+.predict-page .helper-card h3 {
+  margin: 0 0 8px;
+  color: #0F172A;
+}
+
+.predict-page .helper-card p {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.70);
+  line-height: 1.5;
+}
+
+/* ================= BOTTOM CTA (COMPACT) ================= */
+.predict-page .bottom-cta {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.10), rgba(37, 99, 235, 0.10));
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  text-align: center;
+}
+
+.predict-page .bottom-cta.compact h2 {
+  margin: 0 0 10px;
+  color: #0F172A;
+  font-size: 1.4rem;
+}
+
+.predict-page .cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.predict-page .cta-btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+
+  background: linear-gradient(90deg, #1E3A8A, #1D4ED8);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.predict-page .cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
+}
+
+.predict-page .cta-btn.secondary {
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+}
+
+
+
+/* RESPONSIVE (Mobile / Tablet) */
+
+/* Make images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Tablets & below ---------- */
+@media (max-width: 900px) {
+
+  /* Navbar: allow wrap instead of squeezing */
+  .topbar {
+    padding: 12px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  /* Titles */
+  .section-title {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    width: 50px;
+  }
+
+  .section-title::before {
+    left: -70px;
+  }
+
+  .section-title::after {
+    right: -70px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 320px;
+    border-radius: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    font-size: 16px;
+    padding: 10px 18px;
+  }
+
+  /* Section spacing */
+  .attractions {
+    padding: 70px 16px;
+  }
+
+  .section-text {
+    padding: 22px 18px;
+    font-size: 18px;
+  }
+
+
+
+  /* Locations become a grid */
+  .locations-container {
+    width: 94%;
+    gap: 18px;
+  }
+
+  .location {
+    width: 220px;
+  }
+
+  .location img {
+    height: 240px;
+  }
+
+  /* Bottom 3 cards */
+  .row-sections {
+    flex-wrap: wrap;
+  }
+
+  .row-box {
+    width: 100%;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+
+  /* Push down enough for wrapped navbar */
+  body {
+    padding-top: 120px;
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 7px 9px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 260px;
+    border-radius: 10px;
+  }
+
+  .hero img {
+    filter: brightness(65%);
+  }
+
+  .hero-text {
+    width: 92%;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  /* Titles */
+  .section-title {
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+  /* Remove decorative lines on tiny screens (prevents overflow) */
+  .section-title::before,
+  .section-title::after {
+    display: none;
+  }
+
+  .section-text {
+    font-size: 16.5px;
+    line-height: 1.8;
+  }
+
+  .locations-container {
+    width: 94%;
+    margin: 26px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* clean 2-column */
+    gap: 14px;
+  }
+
+  .location {
+    width: 100%;
+    /* override fixed width */
+    padding: 10px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+  }
+
+  .location img {
+    height: 170px;
+    /* consistent image height */
+    width: 100%;
+    object-fit: cover;
+
+    border-radius: 16px;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+  }
+
+  .location h5 {
+    margin: 10px 0 2px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+
+  /* Make the last card (5th) centered and full width (looks premium) */
+  .locations-container .location:nth-child(5) {
+    grid-column: 1 / -1;
+    width: min(320px, 100%);
+    justify-self: center;
+  }
+
+  /* Remove hover jumpiness on touch devices */
+  .location:hover,
+  .location:hover img {
+    transform: none;
+    filter: none;
+  }
+
+
+  .lastheading {
+    font-size: 28px;
+    margin-top: 55px;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  p2 {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 420px) {
+
+  /* Locations: 1-column grid for extra small screens */
+
+  .locations-container {
+    grid-template-columns: 1fr;
+  }
+
+  .locations-container .location:nth-child(5) {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .location img {
+    height: 200px;
+  }
+
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+
+
+/* ABOUT US - RESPONSIVE */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+
+  .upcontent {
+    padding: 40px 16px;
+    gap: 16px;
+  }
+
+  .fsection h2 {
+    font-size: 30px;
+  }
+
+  .fsection p {
+    font-size: 18px;
+  }
+
+  .offer-section {
+    padding: 30px 16px;
+    gap: 18px;
+  }
+
+  /* Give list and images more flexible sizing */
+  .offer-images {
+    width: 52%;
+  }
+
+  .bordered-box {
+    width: min(700px, 92%);
+    padding: 18px 20px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  /* Stack the 2 top boxes */
+  .upcontent {
+    flex-direction: column;
+  }
+
+  .fsection {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .fsection h2 {
+    font-size: 26px;
+  }
+
+  .fsection p {
+    font-size: 16.5px;
+  }
+
+  /* Stack offer section (list then images) */
+  .offer-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .offer-list h3 {
+    margin-left: 0;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .offer-list ol {
+    font-size: 16.5px;
+    padding-left: 20px;
+  }
+
+  /* Make the image area look more "systematic" */
+  .offer-images {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* neat 2-column */
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  /* Make images consistent + prettier */
+  .offer-images img {
+    width: 100%;
+    height: 170px;
+    /* consistent height on phones */
+    object-fit: cover;
+    /* crop nicely, no stretching */
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    transform: none;
+  }
+
+  /* Make the 3rd image span full width (looks premium) */
+  .offer-images img:nth-child(3) {
+    grid-column: 1 / -1;
+    height: 200px;
+  }
+
+  /* Smooth hover */
+  .offer-images img:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+  }
+}
+
+/* Contact box full width */
+.bordered-box {
+  width: 94%;
+  padding: 16px 16px;
+}
+
+.bordered-box ul {
+  font-size: 16px;
+}
+
+.bordered-box p {
+  font-size: 16.5px;
+}
+
+/* Social icons centered */
+.icons {
+  text-align: center;
+  padding: 18px 10px;
+}
+
+.icons img {
+  width: 34px;
+  height: 28px;
+  margin: 0 8px;
+}
+
+
+/* Very small phones: stack as 1 column */
+@media (max-width: 420px) {
+  .offer-images {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-images img,
+  .offer-images img:nth-child(3) {
+    height: 200px;
+    grid-column: auto;
+  }
+}
+
+.fsection h2 {
+  font-size: 24px;
+}
+
+
+
+
+/* PACKAGES - RESPONSIVE */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  .pkg-title {
+    margin: 50px 18px 10px;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .bcontainer {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .package-bg {
+    width: 100%;
+    height: 420px;
+    /* keep a nice card look */
+    border-radius: 24px;
+  }
+
+  .contents {
+    padding: 18px 18px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .package-bg h3 {
+    font-size: 22px;
+  }
+
+  .package-bg ul {
+    font-size: 16px;
+  }
+
+  /* Keep button visible */
+  .book-btn {
+    right: 16px;
+    bottom: 18px;
+    position: absolute;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .pkg-title {
+    margin: 40px 14px 10px;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .bcontainer {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  /* Let the card grow if content is longer */
+  .package-bg {
+    width: 100%;
+    height: auto;
+    /* IMPORTANT: prevents text cutting */
+    min-height: 420px;
+    border-radius: 20px;
+  }
+
+  /* Make overlay always readable */
+  .package-bg::before {
+    background: linear-gradient(to top,
+        rgba(15, 23, 42, 0.88),
+        rgba(15, 23, 42, 0.35));
+  }
+
+  /* Show content without forcing hover (phones don't "hover") */
+  .contents {
+    position: relative;
+    bottom: 0;
+    transform: none;
+    /* always visible */
+    background: rgba(15, 23, 42, 0.62);
+    border-radius: 0 0 20px 20px;
+    padding: 16px 14px 64px;
+    /* space for button */
+  }
+
+  .package-bg:hover .contents {
+    transform: none;
+  }
+
+  .package-bg h3 {
+    font-size: 20px;
+  }
+
+  .package-bg ul {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Put the button nicely at the bottom */
+  .book-btn {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  /* Reduce hover movement on phones */
+  .package-bg:hover {
+    transform: none;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+
+  .pkg-title {
+    font-size: 18px;
+  }
+
+  .package-bg {
+    border-radius: 18px;
+  }
+
+  .contents {
+    padding: 14px 12px 64px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .package-bg h3 {
+    font-size: 18px;
+  }
+
+  .package-bg ul {
+    font-size: 14.5px;
+  }
+
+  .book-btn {
+    left: 12px;
+    right: 12px;
+    text-align: center;
+    border-radius: 14px;
+  }
+}
+
+
+
+
+/* DESTINATIONS - RESPONSIVE */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+
+  .page-title {
+    margin: 50px 0 10px;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
+  .content-container {
+    padding: 26px 18px;
+    gap: 18px;
+  }
+
+  .content-block {
+    width: 48%;
+    border-radius: 16px;
+  }
+
+  .content-block img {
+    height: 260px;
+  }
+
+  .content-block p {
+    font-size: 17px;
+    padding: 16px 14px 18px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .page-title {
+    margin: 40px 0 8px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 0.6px;
+  }
+
+  /* Stack cards */
+  .content-container {
+    flex-direction: column;
+    padding: 18px 14px;
+    gap: 16px;
+  }
+
+  .content-block {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  /* Keep images nice on small screens */
+  .content-block img {
+    height: 210px;
+  }
+
+  .content-block p {
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 14px 12px 16px;
+  }
+
+  /* Phones don't hover – reduce jumpiness */
+  .content-block:hover {
+    transform: none;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+  }
+
+  .content-block:hover img {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .content-block img {
+    height: 190px;
+  }
+
+  .content-block p {
+    font-size: 15px;
+  }
+}
+
+
+
+/* PREDICT - RESPONSIVE */
+
+/* Tablet & below */
+@media (max-width: 980px) {
+
+  .predict-page .page {
+    padding: 22px 14px 50px;
+  }
+
+  /* Turn off sticky on smaller screens (better UX) */
+  .predict-page .sticky-card {
+    position: static;
+    top: auto;
+  }
+
+  .predict-page .predict-hero.compact h1 {
+    font-size: 1.75rem;
+  }
+
+  .predict-page .hero-lead {
+    font-size: 0.98rem;
+    padding: 0 6px;
+  }
+
+  .predict-page .weather-card {
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+
+  .predict-page .predict-info,
+  .predict-page .helper-card,
+  .predict-page .bottom-cta {
+    border-radius: 20px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .predict-page .page {
+    padding: 18px 12px 45px;
+  }
+
+  .predict-page .predict-hero.compact h1 {
+    font-size: 1.45rem;
+  }
+
+  .predict-page .hero-lead {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* Reduce card padding for smaller screens */
+  .predict-page .weather-card {
+    padding: 16px 14px;
+  }
+
+  /* Inputs easier to tap */
+  .predict-page .weather-card input,
+  .predict-page .weather-card select {
+    padding: 12px 12px;
+    font-size: 15px;
+  }
+
+  .predict-page .hint {
+    font-size: 0.82rem;
+  }
+
+  .predict-page .micro-note {
+    font-size: 0.85rem;
+    padding: 10px 10px;
+  }
+
+  /* Result text a bit smaller */
+  .predict-page .result-body {
+    font-size: 0.95rem;
+  }
+
+  /* CTA buttons more mobile-friendly */
+  .predict-page .cta-btn {
+    width: auto;
+    padding: 11px 14px;
+    border-radius: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+
+  .predict-page .predict-hero.compact h1 {
+    font-size: 1.25rem;
+  }
+
+  /* Make CTA buttons full width stacked */
+  .predict-page .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .predict-page .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Reduce hover "jump" on touch */
+  .predict-page .weather-card:hover,
+  .predict-page .cta-btn:hover {
+    transform: none;
+  }
+}
+
+
+
+/* ENQUIRY - RESPONSIVE*/
+
+
+/* Tablet & below */
+@media (max-width: 900px) {
+
+  .pcontainer {
+    grid-template-columns: 1fr;
+    /* stack */
+    padding: 18px;
+    margin: 26px auto;
+    gap: 18px;
+    border-radius: 22px;
+  }
+
+  /* remove the vertical divider on stack mode */
+  .form-section {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    padding-bottom: 18px;
+  }
+
+  .text-section {
+    padding-left: 0;
+  }
+
+  form {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 24px;
+  }
+
+  .text-section p {
+    font-size: 16px;
+  }
+
+  .info-card {
+    border-radius: 18px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+
+  .pcontainer {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  form {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14.5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea {
+    padding: 11px 11px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  /* Make month+days row still 2 columns on normal phones */
+  .row-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .text-section h1 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .info-card {
+    padding: 14px 14px;
+    border-radius: 16px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+
+  /* Month + Days becomes 1 column */
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  /* Reduce hover jumpiness on touch devices */
+  .pcontainer:hover,
+  form:hover,
+  .info-card:hover {
+    transform: none;
+  }
+}
+
+/* mobile spacing */
+@media (max-width: 600px) {
+  .copyright {
+    margin-top: 60px;
+    padding: 22px 12px;
+  }
+
+  .copyright p {
+    font-size: 18px;
+  }
+}
+
+
+
+
+/* HAMBURGER NAV  */
+
+.nav-toggle {
+  display: none; /* desktop hidden */
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: #1E3A8A;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+}
+
+.nav-toggle .icon {
+  width: 22px;
+  height: 22px;
+  display: none;
+}
+
+/* default shows hamburger */
+.nav-toggle .icon-menu {
+  display: block;
+}
+
+/* overlay (behind menu) */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  z-index: 998;
+}
+
+/* mobile sliding panel */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -320px; /* hidden off screen */
+  height: 100vh;
+  width: min(320px, 88vw);
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border-left: 1px solid rgba(226, 232, 240, 0.9);
+
+  box-shadow: -18px 0 60px rgba(15, 23, 42, 0.20);
+  transition: right 0.28s ease;
+}
+
+.mobile-nav-inner {
+  padding: 90px 18px 18px; /* space for fixed topbar */
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-links a {
+  text-decoration: none;
+  color: #1E3A8A;
+  padding: 12px 12px;
+  border-radius: 14px;
+  font-size: 16px;
+  background: rgba(30, 58, 138, 0.06);
+}
+
+.mobile-links a:hover {
+  background: rgba(30, 58, 138, 0.10);
+}
+
+/* OPEN state */
+body.nav-open .mobile-nav {
+  right: 0;
+}
+
+body.nav-open .nav-overlay {
+  display: block;
+}
+
+/* swap icons when open */
+body.nav-open .nav-toggle .icon-menu {
+  display: none;
+}
+
+body.nav-open .nav-toggle .icon-close {
+  display: block;
+}
+
+/* Mobile behavior*/
+
+@media (max-width: 720px) {
+  /* hide desktop nav, show hamburger */
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* keep topbar layout stable */
+  .topbar {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .brand-text {
+    font-size: 15px;
+  }
+}
+
+
+

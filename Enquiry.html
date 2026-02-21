@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry | Island Trails Tours</title>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+  
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-text">Island Trails Tours</span>
+    </div>
+
+    <!-- Hamburger button (mobile only via CSS) -->
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
+      <!-- Hamburger icon -->
+      <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+
+      <!-- Close icon -->
+      <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <!-- Desktop nav (normal) -->
+    <nav class="nav-links desktop-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Packages.html">Packages</a>
+      <a href="Destinations.html">Destinations</a>
+      <a href="Predict.html">Season Guide</a>
+      <a href="Enquiry.html" class="active">Enquiry</a>
+    </nav>
+  </header>
+
+  <!-- Mobile menu panel -->
+  <div class="mobile-nav" id="primaryNav" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <nav class="mobile-links" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="About Us.html">About Us</a>
+        <a href="Packages.html">Packages</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="Predict.html">Season Guide</a>
+        <a href="Enquiry.html" class="active">Enquiry</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Dark background overlay -->
+  <div class="nav-overlay" hidden></div>
+
+  <div class="page-divider"></div>
+
+  <!-- ✅ ONE container that holds LEFT form + RIGHT info -->
+  <div class="pcontainer">
+
+    <!-- LEFT: FORM -->
+    <div class="form-section">
+      <form name="submit-to-google-sheet" action="#" method="POST"
+        onsubmit="return confirm('Are you sure to submit this?')">
+
+        <h2 class="form-title">Send an Enquiry</h2>
+        <p class="form-subtitle">We’ll reply as soon as possible with package details.</p>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" name="contact" placeholder="+xx xx xxx xxxx" required />
+
+        <label for="persons">How many persons</label>
+        <input type="number" id="persons" name="persons" placeholder="Enter :" min="1" max="100" required />
+
+        <!-- ✅ Month + Days Row (ONLY ONCE) -->
+        <div class="row-2">
+          <div class="field-group">
+            <label for="month">Travel Month</label>
+            <select id="month" name="month" required>
+              <option value="" disabled selected>Select month</option>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="days">How many Days</label>
+            <input type="number" id="days" name="days" placeholder="Enter :" min="1" max="100" required />
+          </div>
+        </div>
+
+        <label for="popularPackages">Preferred Packages</label>
+
+        <select id="popularPackages" name="popularPackages[]" multiple required class="multi-select">
+          <option value="AV">Adventure Tour</option>
+          <option value="KY">Cultural / City Tour</option>
+          <option value="CL">Wildlife Safari</option>
+          <option value="GL">Beach Getaway</option>
+        </select>
+
+        <small class="hint">Hold Ctrl</small>
+
+        <label for="message">Type Your Message</label>
+        <textarea id="message" name="message"
+          placeholder="Tell us your travel dates, number of people, and what you want to do..."></textarea>
+
+        <label for="totalCost">Total Cost (USD)</label>
+        <input type="text" id="totalCost" name="totalCost" placeholder="Total tour cost will appear here" readonly />
+
+        <button type="submit" class="submit-btn">Submit</button>
+
+        <span id="msg"></span>
+      </form>
+    </div>
+
+    <!-- RIGHT: INFO -->
+    <div class="text-section">
+      <h1>Contact Us – Let's Plan Your Perfect Journey!</h1>
+
+      <p>
+        We'd love to hear from you! Tell us your preferred package, travel month, and number of days —
+        our travel experts will reply with the best options for your trip.
+      </p>
+
+      <div class="info-card">
+        VISIT US<br>
+        Island Trails Tours<br />123 Paradise Road, Colombo 03, Sri Lanka
+      </div>
+
+      <div class="info-card">
+        CONTACT US<br>
+        Hotline: +94 77 123 4567<br />Office: +94 11 234 5678
+      </div>
+
+      <div class="info-card">
+        EMAIL US<br>
+        General: info@islandtrailstours.lk<br />Support: support@islandtrailstours.lk
+      </div>
+
+      <div class="info-card">
+        OFFICE HOURS<br>
+        Mon–Fri: 9:00 AM – 6:00 PM<br />Sat: 9:00 AM – 1:00 PM<br />Sun & Holidays: Closed
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= COPYRIGHT ================= -->
+  <footer class="copyright">
+    <p>© 2026 All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* =========================
+       GOOGLE SHEETS SUBMISSION
+       ========================= */
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzVWh2X8NEWNmUn3ubwh4wNRyc0BI1cxLmPzwF0lTKk3X9oNrUgAmg2jr6XaP1qzndb/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(() => {
+          msg.innerHTML = "Message sent successfully!";
+          setTimeout(() => msg.innerHTML = "", 5000);
+          form.reset();
+          document.getElementById("totalCost").value = "";
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+
+  <script>
+    /* =========================
+       TOTAL COST CALCULATOR (MULTI-SELECT)
+       ========================= */
+
+    const personsInput = document.getElementById("persons");
+    const daysInput = document.getElementById("days");
+    const packageSelect = document.getElementById("popularPackages");
+    const totalCostInput = document.getElementById("totalCost");
+
+    // USD per person per day
+    const packagePrices = {
+      AV: 25, // Adventure Tour
+      KY: 15, // Cultural/City Tour
+      CL: 20, // Wildlife Safari
+      GL: 13  // Beach Getaway
+    };
+
+    function getSelectedPackageValues(selectEl) {
+      // returns array like ["AV","CL"]
+      return Array.from(selectEl.selectedOptions).map(opt => opt.value);
+    }
+
+    function calculateTotalCost() {
+      const persons = parseInt(personsInput.value, 10) || 0;
+      const days = parseInt(daysInput.value, 10) || 0;
+
+      const selectedPackages = getSelectedPackageValues(packageSelect);
+
+      if (persons <= 0 || days <= 0 || selectedPackages.length === 0) {
+        totalCostInput.value = "";
+        return;
+      }
+
+      // Sum of selected package prices (per person per day)
+      const perDayPerPersonTotal = selectedPackages.reduce((sum, pkg) => {
+        return sum + (packagePrices[pkg] || 0);
+      }, 0);
+
+      if (perDayPerPersonTotal <= 0) {
+        totalCostInput.value = "";
+        return;
+      }
+
+      const total = persons * days * perDayPerPersonTotal;
+      totalCostInput.value = "$ " + total.toLocaleString();
+    }
+
+    personsInput.addEventListener("input", calculateTotalCost);
+    daysInput.addEventListener("input", calculateTotalCost);
+    packageSelect.addEventListener("change", calculateTotalCost);
+  </script>
+
+  <script>
+    (function () {
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const overlay = document.querySelector(".nav-overlay");
+
+      if (!toggleBtn || !mobileNav || !overlay) return;
+
+      function openNav() {
+        document.body.classList.add("nav-open");
+        overlay.hidden = false;
+        mobileNav.setAttribute("aria-hidden", "false");
+        toggleBtn.setAttribute("aria-expanded", "true");
+        toggleBtn.setAttribute("aria-label", "Close menu");
+      }
+
+      function closeNav() {
+        document.body.classList.remove("nav-open");
+        overlay.hidden = true;
+        mobileNav.setAttribute("aria-hidden", "true");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-label", "Open menu");
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      });
+
+      overlay.addEventListener("click", closeNav);
+
+      // Close menu when a mobile link is clicked
+      mobileNav.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") closeNav();
+      });
+
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
