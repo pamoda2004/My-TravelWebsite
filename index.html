@@ -90,8 +90,7 @@
 
   <div class="locations-container">
     <div class="location">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXDyauAt0XaXvcBiv_j8cUYvnCzpcXCkjJBw&s"
-        alt="Kandy">
+      <img src="https://www.chamilatours.com/wp-content/uploads/2022/09/Kandy-Temple-of-Tooth-Relic-2.jpg" alt="Kandy">
       <h5>__KANDY__</h5>
     </div>
 
@@ -112,7 +111,7 @@
     </div>
 
     <div class="location">
-      <img src="https://cdn.pixabay.com/photo/2022/07/11/08/44/tower-7314495_1280.jpg" alt="Colombo">
+      <img src="https://fernandotravels.com.au/_next/static/media/colombo.3b22901d.jpg" alt="Colombo">
       <h5>__COLOMBO__</h5>
     </div>
   </div>
@@ -155,7 +154,7 @@
     </div>
 
     <div class="location">
-      <img src="https://i.pinimg.com/originals/f4/67/1b/f4671b15ef26c6dfb986ff85de75bd15.jpg" alt="Arts">
+      <img src="https://www.srilanka.org.tr/userfiles/images/Kolaj-Arts.jpg" alt="Arts">
       <h5>__ARTS__</h5>
     </div>
   </div>
@@ -209,23 +208,22 @@
   <div class="row-sections">
     <div class="row-box">
       <h6> Culture__</h6>
-      <p2>Sri Lanka offers a rich cultural heritage with ancient temples, royal cities, and sacred relics.Visitors can
-        witness vibrant festivals like the Kandy Esala Perahera and traditional Kandyan dance.Local crafts, cuisine, and
-        centuries-old traditions make it a deeply immersive cultural experience.</p2>
+      <p2>Sri Lanka has a rich cultural heritage with ancient temples, royal cities, and sacred relics. Visitors can
+        enjoy vibrant festivals like the Kandy Esala Perahera,
+        traditional Kandyan dance, local crafts, cuisine, and centuries-old traditions.</p2>
     </div>
 
     <div class="row-box">
       <h6> Nature__</h6>
-      <p2>Sri Lanka is a paradise of natural beauty, from golden beaches to misty mountains.Explore lush rainforests,
-        cascading waterfalls, and scenic tea plantations.Wildlife lovers can enjoy safaris in national parks teeming
-        with elephants and leopards.</p2>
+      <p2>Sri Lanka is rich in natural beauty, from golden beaches to misty mountains. Explore rainforests, waterfalls,
+        tea plantations,
+        and wildlife safaris with elephants and leopards.</p2>
     </div>
 
     <div class="row-box">
       <h6> Adventure__</h6>
-      <p2>Sri Lanka is perfect for thrill-seekers, offering surfing, diving, and white-water rafting.Hike scenic trails
-        in Ella or conquer the peaks of Knuckles and Adam’s Peak.From jungle treks to hot air balloon rides, adventure
-        awaits at every turn.</p2>
+      <p2>Sri Lanka is ideal for thrill-seekers, offering surfing, diving, rafting, hiking in Ella,
+        and climbing Knuckles and Adam’s Peak.</p2>
     </div>
   </div>
 
@@ -235,46 +233,46 @@
   </footer>
 
   <script>
-  (function () {
-    const toggleBtn = document.querySelector(".nav-toggle");
-    const mobileNav = document.querySelector(".mobile-nav");
-    const overlay = document.querySelector(".nav-overlay");
+    (function () {
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const overlay = document.querySelector(".nav-overlay");
 
-    if (!toggleBtn || !mobileNav || !overlay) return;
+      if (!toggleBtn || !mobileNav || !overlay) return;
 
-    function openNav() {
-      document.body.classList.add("nav-open");
-      overlay.hidden = false;
-      mobileNav.setAttribute("aria-hidden", "false");
-      toggleBtn.setAttribute("aria-expanded", "true");
-      toggleBtn.setAttribute("aria-label", "Close menu");
-    }
+      function openNav() {
+        document.body.classList.add("nav-open");
+        overlay.hidden = false;
+        mobileNav.setAttribute("aria-hidden", "false");
+        toggleBtn.setAttribute("aria-expanded", "true");
+        toggleBtn.setAttribute("aria-label", "Close menu");
+      }
 
-    function closeNav() {
-      document.body.classList.remove("nav-open");
-      overlay.hidden = true;
-      mobileNav.setAttribute("aria-hidden", "true");
-      toggleBtn.setAttribute("aria-expanded", "false");
-      toggleBtn.setAttribute("aria-label", "Open menu");
-    }
+      function closeNav() {
+        document.body.classList.remove("nav-open");
+        overlay.hidden = true;
+        mobileNav.setAttribute("aria-hidden", "true");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-label", "Open menu");
+      }
 
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.contains("nav-open") ? closeNav() : openNav();
-    });
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      });
 
-    overlay.addEventListener("click", closeNav);
+      overlay.addEventListener("click", closeNav);
 
-    // Close menu when a mobile link is clicked
-    mobileNav.addEventListener("click", (e) => {
-      if (e.target.tagName === "A") closeNav();
-    });
+      // Close menu when a mobile link is clicked
+      mobileNav.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") closeNav();
+      });
 
-    // Close on ESC key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeNav();
-    });
-  })();
-</script>
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    })();
+  </script>
 
 </body>
 

@@ -103,6 +103,7 @@ body {
   align-items: center;
 }
 
+
 /* Nav links */
 .nav-links a {
   position: relative;
@@ -2594,3 +2595,22 @@ body.nav-open .nav-toggle .icon-close {
 
 
 
+/* =========================
+   STOP SIDEWAYS SCROLL
+========================= */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
+
+/* Prevent long words/links from causing overflow */
+p, h1, h2, h3, h4, h5, h6, li, a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
