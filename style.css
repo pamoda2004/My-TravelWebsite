@@ -703,12 +703,10 @@ h4,
 
 /* packages page */
 
-/* ===== BODY ===== */
-body {
-  margin: 0;
-  background: #F8FAFC;
-  font-family: "Segoe UI", Arial, sans-serif;
+.h2{
+  font-family: "Baskerville Old Face", serif;;
 }
+
 
 /* ===== TITLE ===== */
 .pkg-title {
