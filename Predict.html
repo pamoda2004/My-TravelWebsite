@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Prediction | Island Trails Tours</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="predict-page">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-text">Island Trails Tours</span>
+    </div>
+
+    <!-- Hamburger button (mobile only via CSS) -->
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
+      <!-- Hamburger icon -->
+      <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+
+      <!-- Close icon -->
+      <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <!-- Desktop nav (normal) -->
+    <nav class="nav-links desktop-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Packages.html">Packages</a>
+      <a href="Destinations.html">Destinations</a>
+      <a href="Predict.html" class="active">Season Guide</a>
+      <a href="Enquiry.html">Enquiry</a>
+    </nav>
+  </header>
+
+  <!-- Mobile menu panel -->
+  <div class="mobile-nav" id="primaryNav" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <nav class="mobile-links" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="About Us.html">About Us</a>
+        <a href="Packages.html">Packages</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="Predict.html" class="active">Season Guide</a>
+        <a href="Enquiry.html">Enquiry</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Dark background overlay -->
+  <div class="nav-overlay" hidden></div>
+
+  <main class="page">
+
+    <!-- Compact hero -->
+    <section class="predict-hero compact">
+      <h1>Weather Prediction</h1>
+      <p class="hero-lead">
+        Enter a city and month to estimate temperature, wind speed, and conditions for your trip.
+      </p>
+    </section>
+
+    <!-- MAIN: LEFT FORM | RIGHT INFO -->
+    <section class="predict-layout">
+
+      <!-- LEFT: Form card -->
+      <div class="weather-card sticky-card" role="region" aria-label="Weather prediction form">
+        <div class="card-head">
+          <div class="card-title">
+            <span class="badge" aria-hidden="true">🌤</span>
+            <div>
+              <h2>Predict Weather</h2>
+              <p class="subtext">City + Month → prediction</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="form" onsubmit="event.preventDefault(); predictWeather();">
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="e.g., Colombo" autocomplete="address-level2"
+              required />
+            <small class="hint">Try: Kandy, Galle, Jaffna, Ella, Nuwara Eliya.</small>
+          </div>
+
+          <div class="field">
+            <label for="month">Month</label>
+            <select id="month" name="month" required>
+              <option value="" selected disabled>Select month</option>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+          </div>
+
+          <button id="predictBtn" type="submit" class="primary-btn">
+            <span class="btn-text">Predict</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+
+          <div id="result" class="result info" aria-live="polite">
+            <div class="result-title">Ready</div>
+            <div class="result-body">Fill the form and click Predict.</div>
+          </div>
+
+          <div class="micro-note">
+            <span aria-hidden="true">🔒</span>
+            <span>Inputs are used only for prediction.</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Minimal content -->
+      <aside class="predict-content" aria-label="Prediction page information">
+
+        <section class="predict-info">
+          <h2>Why this helps</h2>
+          <p>
+            Weather affects packing and activity choices. Compare a few cities and months to find the best time to
+            travel.
+          </p>
+          <p class="cta-text">
+            Tip: Highlands can feel cooler at night — pack a light jacket.
+          </p>
+        </section>
+
+        <section class="helper-card" aria-label="Travel tip">
+          <h3>Quick Tip</h3>
+          <p>
+            During monsoon months, carry a rain cover and plan indoor options as backup.
+          </p>
+        </section>
+
+      </aside>
+    </section>
+
+    <!-- Compact CTA -->
+    <section class="bottom-cta compact" aria-label="Call to action">
+      <h2>Explore our tours</h2>
+      <div class="cta-actions">
+        <a class="cta-btn" href="Packages.html">View Packages</a>
+        <a class="cta-btn secondary" href="Enquiry.html">Enquiry</a>
+      </div>
+    </section>
+
+  </main>
+  <!-- ================= COPYRIGHT ================= -->
+  <footer class="copyright">
+    <p>© 2026 All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function predictWeather() {
+      const cityEl = document.getElementById("city");
+      const monthEl = document.getElementById("month");
+      const btn = document.getElementById("predictBtn");
+
+      const city = cityEl.value.trim();
+      const month = monthEl.value;
+
+      if (!city || !month) {
+        setResult("error", "Missing info", "Please enter a city and select a month.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.classList.add("loading");
+      setResult("info", "Checking…", "Please wait a moment.");
+
+      try {
+        const url = `http://127.0.0.1:8000/predict?city=${encodeURIComponent(city)}&month=${encodeURIComponent(month)}`;
+        const res = await fetch(url);
+
+        if (!res.ok) throw new Error(`Server error (${res.status})`);
+
+        const data = await res.json();
+
+        if (data.error) {
+          setResult("error", "Couldn’t predict", data.error);
+        } else {
+          const details =
+            `🌡 ${data.temperature}°C  •  🌬 ${data.windspeed} km/h  •  ☁ ${data.weather_condition}`;
+          setResult("success", "Prediction", details);
+        }
+      } catch (err) {
+        setResult(
+          "error",
+          "Connection issue",
+          "Cannot reach the server. Make sure the API runs on http://127.0.0.1:8000."
+        );
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove("loading");
+      }
+    }
+
+    function setResult(type, title, body) {
+      const result = document.getElementById("result");
+      result.className = `result ${type}`;
+      result.querySelector(".result-title").textContent = title;
+      result.querySelector(".result-body").textContent = body;
+    }
+  </script>
+
+  <script>
+    (function () {
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const overlay = document.querySelector(".nav-overlay");
+
+      if (!toggleBtn || !mobileNav || !overlay) return;
+
+      function openNav() {
+        document.body.classList.add("nav-open");
+        overlay.hidden = false;
+        mobileNav.setAttribute("aria-hidden", "false");
+        toggleBtn.setAttribute("aria-expanded", "true");
+        toggleBtn.setAttribute("aria-label", "Close menu");
+      }
+
+      function closeNav() {
+        document.body.classList.remove("nav-open");
+        overlay.hidden = true;
+        mobileNav.setAttribute("aria-hidden", "true");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-label", "Open menu");
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      });
+
+      overlay.addEventListener("click", closeNav);
+
+      // Close menu when a mobile link is clicked
+      mobileNav.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") closeNav();
+      });
+
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    })();
+  </script>
+</body>
+
+</html>
