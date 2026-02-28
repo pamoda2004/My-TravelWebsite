@@ -710,11 +710,15 @@ h4,
 
 /* ===== TITLE ===== */
 .pkg-title {
-  margin: 60px 40px 10px;
+  margin-left: 50px;
+  margin-top: 60px;
+
   font-family: "Baskerville Old Face", serif;
   font-style: italic;
+
   color: #1E3A8A;
   font-size: 30px;
+  letter-spacing: 2px;
 }
 
 /* ===== CONTAINER ===== */
