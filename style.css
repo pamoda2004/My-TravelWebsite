@@ -704,16 +704,17 @@ h4,
 /* packages page */
 
 .h2{
-  font-family: "Baskerville Old Face", serif;;
+  font-family: "Baskerville Old Face", serif;
 }
 
 
 /* ===== TITLE ===== */
 .pkg-title {
   margin: 60px 40px 10px;
-  font-family: Castellar, serif;
+  font-family: "Baskerville Old Face", serif;
+  font-style: italic;
   color: #1E3A8A;
-  font-size: 32px;
+  font-size: 30px;
 }
 
 /* ===== CONTAINER ===== */
