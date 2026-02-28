@@ -164,3 +164,169 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-text">Island Trails Tours</span>
+    </div>
+
+    <!-- Hamburger button (mobile only via CSS) -->
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
+      <!-- Hamburger icon -->
+      <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+
+      <!-- Close icon -->
+      <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <!-- Desktop nav (normal) -->
+    <nav class="nav-links desktop-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Packages.html">Packages</a>
+      <a href="Destinations.html" class="active">Destinations</a>
+      <a href="Predict.html">Season Guide</a>
+      <a href="Enquiry.html">Enquiry</a>
+    </nav>
+  </header>
+
+  <!-- Mobile menu panel -->
+  <div class="mobile-nav" id="primaryNav" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <nav class="mobile-links" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="About Us.html">About Us</a>
+        <a href="Packages.html">Packages</a>
+        <a href="Destinations.html" class="active">Destinations</a>
+        <a href="Predict.html">Season Guide</a>
+        <a href="Enquiry.html">Enquiry</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Dark background overlay -->
+  <div class="nav-overlay" hidden></div>
+
+
+  <h1 class="page-title">___POPULAR DESTINATIONS___</h1>
+
+  <!-- First row -->
+  <div class="content-container">
+    <div class="content-block">
+      <img
+        src="https://lakpura.com/cdn/shop/files/demodara-nine-arch-bridge-ella-sri-lanka-scaled-1_77c0b1eb-4170-472a-b6df-950903726734.jpg?v=1654085052&width=3840"
+        alt="Ella">
+      <p>
+        Ella is a beautiful hill town in Sri Lanka, famous for its cool weather and scenic views.
+        Popular spots include Nine Arches Bridge, Little Adam’s Peak, and Ella Rock.
+        Visitors enjoy hiking, tea plantation tours, and waterfalls like Ravana Falls.
+        It’s a peaceful place with cozy hotels, cafés, and nature all around.
+        The train ride to Ella is one of the most scenic journeys in the country.
+      </p>
+    </div>
+
+    <div class="content-block">
+      <img src="https://overatours.com/wp-content/uploads/2025/08/galle-fort.jpg" alt="Galle">
+      <p>
+        Galle is a historic coastal city in southern Sri Lanka, known for its colonial charm.
+        The famous Galle Fort is a UNESCO World Heritage Site.
+        Tourists enjoy walking along the fort walls, exploring old buildings, and visiting museums.
+        Beautiful beaches like Unawatuna and Jungle Beach are nearby for swimming and relaxing.
+        Galle also offers boutique shops, art galleries, and delicious seafood restaurants.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second row -->
+  <div class="content-container">
+    <div class="content-block">
+      <img src="https://www.chamilatours.com/wp-content/uploads/2022/09/Kandy-Temple-of-Tooth-Relic-2.jpg" alt="Kandy">
+      <p>
+        Kandy is a cultural and spiritual hub in Sri Lanka.
+        It’s home to the Temple of the Tooth Relic, one of Buddhism's most sacred sites.
+        Tourists enjoy Kandy Lake, traditional dance shows, and vibrant markets.
+        The Royal Botanical Gardens is a must-visit for nature lovers.
+        Surrounded by mountains, Kandy offers a peaceful retreat with rich heritage.
+      </p>
+    </div>
+
+    <div class="content-block">
+      <img src="https://www.remotelands.com/storage/media/3079/conversions/b130509017-banner-size.jpg"
+        alt="Nuwara Eliya">
+      <p>
+        Nuwara Eliya, known as "Little England," is a cool and misty city in Sri Lanka's hill country.
+        It’s famous for tea plantations, scenic views, and colonial-style architecture.
+        Tourists enjoy Gregory Lake, Horton Plains, and Lover’s Leap waterfall.
+        The climate is perfect for relaxing, with gardens and strawberry farms.
+        Nature trails and peaceful views make it a charming getaway.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================= COPYRIGHT ================= -->
+  <footer class="copyright">
+    <p>© 2026 All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const toggleBtn = document.querySelector(".nav-toggle");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const overlay = document.querySelector(".nav-overlay");
+
+      if (!toggleBtn || !mobileNav || !overlay) return;
+
+      function openNav() {
+        document.body.classList.add("nav-open");
+        overlay.hidden = false;
+        mobileNav.setAttribute("aria-hidden", "false");
+        toggleBtn.setAttribute("aria-expanded", "true");
+        toggleBtn.setAttribute("aria-label", "Close menu");
+      }
+
+      function closeNav() {
+        document.body.classList.remove("nav-open");
+        overlay.hidden = true;
+        mobileNav.setAttribute("aria-hidden", "true");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-label", "Open menu");
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      });
+
+      overlay.addEventListener("click", closeNav);
+
+      // Close menu when a mobile link is clicked
+      mobileNav.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") closeNav();
+      });
+
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
